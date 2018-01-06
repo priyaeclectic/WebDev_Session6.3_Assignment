@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Assignment 6.3</title>
+</head>
+<style>
+th,td {
+    border: 1px solid black;
+}
+</style>
+<body>
+	Enter name:<input type="text" id="name"><br>
+	Enter subject1 marks:<input type="text" id="sub1"><br>
+	Enter subject2 marks:<input type="text" id="sub2"><br>
+	Enter subject3 marks:<input type="text" id="sub3"><br>
+	<button onclick="calculateGrade();">Calculate grade</button><br><br>
+<table>
+	<thead id="heading">								<!--Constructs table after manipulation the javascript-->
+	</thead>
+	<tr id="stud"></tr>
+</table>	
+
+</body>
+
+<script type="text/javascript">
+function calculateGrade()									/*Function that manipulates user input, calculate the average and grade of the student*/
+{															/*Displays it in a table*/
+	var avg,grade;
+	var s1=Number(document.getElementById("sub1").value);
+	var s2=Number(document.getElementById("sub2").value);
+	var s3=Number(document.getElementById("sub3").value);
+	if(document.getElementById("sub1").value<35||document.getElementById("sub2").value<35||document.getElementById("sub3").value<35)
+	{
+		grade='Fail';
+	}	
+	else{
+		grade="Pass";
+	}
+	avg=(s1+s2+s3) / 3;
+	document.getElementById("heading").innerHTML="<th>Name</th><th>Subject1</th><th>Subject2</th><th>Subject3</th><th>Average</th><th>Grade</th>";
+	document.getElementById("stud").innerHTML="<td>"+document.getElementById("name").value+"</td><td>"+document.getElementById("sub1").value+"</td><td>"+document.getElementById("sub2").value+"</td><td>"+document.getElementById("sub3").value+"</td><td>"+avg+"</td><td>"+grade+"</td>";
+}
+</script>
+</html>
